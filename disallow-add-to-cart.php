@@ -1,7 +1,7 @@
 <?php
-add_action( 'woocommerce_add_to_cart', 'misha_if_product_in_cart', 10, 6);
+add_action( 'woocommerce_add_to_cart', 'my_if_product_in_cart', 10, 6);
 
-function misha_if_product_in_cart() {
+function my_if_product_in_cart() {
 	$giftCardID = 25;
 	if( in_array( $giftCardID, array_column( WC()->cart->get_cart(), 'product_id' ) ) ) {
 		foreach( WC()->cart->get_cart() as $item_key => $cart_item ){
@@ -31,8 +31,8 @@ function check_and_limit_cart_items ( $passed, $product_id, $quantity ){
     return $passed;
 }
 
-add_filter( 'wc_add_to_cart_message_html', 'quadlayers_custom_add_to_cart_message' );
-function quadlayers_custom_add_to_cart_message($message) {
+add_filter( 'wc_add_to_cart_message_html', 'my_custom_add_to_cart_message' );
+function my_custom_add_to_cart_message($message) {
 	$giftCardID = 25;
 	
 	if(sizeof( WC()->cart->get_cart() ) > 0 && in_array( $giftCardID, array_column( WC()->cart->get_cart(), 'product_id' ) )){
