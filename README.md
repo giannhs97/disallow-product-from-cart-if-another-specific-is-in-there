@@ -1,0 +1,1 @@
+The above file contains a series of functions that check the cart items and if a specific product is in cart no other product is allowed to be added. In my case i used a gift card as a product with the product ID equal to 25.
